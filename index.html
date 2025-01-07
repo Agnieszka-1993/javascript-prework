@@ -4,15 +4,46 @@
 	<meta charset="UTF-8">
 	<title>Kamień, papier, nożyce</title>
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@700&family=Quicksand&display=swap" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+	<header class="started">
+		<h2>ZAGRAJMY RAZEM W:</h2>
+		<h1>KAMIEŃ PAPIER NOŻYCE</h1>
+	</header>
+	<section class="rules">
+		<div>
+			<h3>Zasady gry:</h3>
+			<ul>
+				<li>Każdy z graczy wybiera kamień <i class="fas fa-thin fa-gem"></i>, papier <i class="fas fa-sharp fa-thin fa-scroll"></i> lub nożyce <i class="fa-solid fa-scissors"></i></li>
+				<li>Kamień łamie nożyczki - wygrywa</li>
+				<li>Papier zakrtwa kamień - wygrana</li>
+				<li>Nożyczki tną papier - wygrana</li>
+				<li>Możesz zliczać ilość wygranych rund</li>
+			</ul>
+		</div>
+	</section>
 	<div class="container">
 		<div id="buttons">
-			<button id="kamień" type="submit">Kamień</button>
-			<button id="papier" type="submit">Papier</button>
-			<button id="nożyce" type="submit">Nożyce</button>
+			<button id="kamień" type="submit">
+				<i class="fas fa-thin fa-gem"></i>
+				<span class="sr-only">Kamień</span>
+			</button>
+			<button id="papier" type="submit">
+				<i class="fas fa-sharp fa-thin fa-scroll"></i>
+				<span class="sr-only">Papier</span>
+			</button>
+			<button id="nożyce" type="submit">
+				<i class="fa-solid fa-scissors"></i>
+				<span class="sr-only">Nożyce</span>
+			</button>
 		</div>
-		<div id="messages"></div>
+		<div id="messages"></div><br><br>
+		<div id="result">0 - 0</div>
 	</div>
 	<script src="js/functions.js"></script>
 	<script src="js/script.js"></script>
