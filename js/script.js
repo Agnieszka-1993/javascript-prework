@@ -20,35 +20,24 @@ function playGame(playerInput){
 
   function displayResult(argComputerMove, argPlayerMove) {
     console.log('moves:', argComputerMove, argPlayerMove);
-    let result = 0;
 
-    if(argComputerMove == 'kamień' && argPlayerMove == 'papier'){
-      printMessage('Ty wygrywasz');
-      playerWin++;
-    }else if(argComputerMove == 'kamień' && argPlayerMove == 'kamień'){
+    if(argComputerMove == argPlayerMove){
       printMessage('Remis');
-    }else if(argComputerMove == 'kamień' && argPlayerMove == 'nożyce'){
-      printMessage('Komputer wygrał');
-      computerWin++;
-    }else if(argComputerMove == 'papier' && argPlayerMove == 'nożyce'){
-      printMessage('Ty wygrywasz');
-      playerWin++;
-    }else if(argComputerMove == 'papier' && argPlayerMove == 'papier'){
-      printMessage('Remis');
-    }else if(argComputerMove == 'papier' && argPlayerMove == 'kamień'){
-      printMessage('Komputer wygrał');
-      computerWin++;
-    }else if(argComputerMove == 'nożyce' && argPlayerMove == 'kamień'){
-      printMessage('Ty wygrywasz');
-      playerWin++;
-    }else if(argComputerMove == 'nożyce' && argPlayerMove == 'nożyce'){
-      printMessage('Remis');
-    }else if(argComputerMove == 'nożyce' && argPlayerMove == 'papier'){
-      printMessage('Komputer wygrał');
-      computerWin++;
-    }else {
-      printMessage('??')
     }
+    else if(
+      (argComputerMove == 'kamień' && argPlayerMove == 'nożyce')
+      (argComputerMove == 'papier' && argPlayerMove == 'kamień')
+      (argComputerMove == 'nożyce' && argPlayerMove == 'papier')
+     ){
+      printMessage('Komputer wygrał');
+      computerWin++;
+    }
+    else {
+      printMessage('Ty wygrywasz');
+      playerWin++;
+    }
+    
+    
   }
 
   let randomNumber = Math.floor(Math.random() * 3 + 1);
@@ -64,7 +53,7 @@ function playGame(playerInput){
   let playerMove = getMoveName(playerInput);
 
   printMessage('Twój ruch to: ' + playerMove);
-
+  document.getElementById(result).textContent = '${playerWin} - ${computerWin}';
   displayResult(computerMove, playerMove)
 }
 
@@ -82,6 +71,6 @@ document.getElementById('nożyce').addEventListener('click', function() {
   printMessage('Wybrałeś Nożyce!');
   playGame(3);  
 });
-document.getElementById(result).textContent = '${playerWin} - ${computerWin}';
+
 
 console.log('Wynik rundy: ${result}');
