@@ -1,5 +1,5 @@
-let playerWin = 0;
-let computerWin = 0;
+let playerWin ;
+let computerWin ;
 
 
 function playGame(playerInput){
@@ -21,23 +21,27 @@ function playGame(playerInput){
   function displayResult(argComputerMove, argPlayerMove) {
     console.log('moves:', argComputerMove, argPlayerMove);
 
-    if(argComputerMove == argPlayerMove){
-      printMessage('Remis');
-    }
-    else if(
-      (argComputerMove == 'kamień' && argPlayerMove == 'nożyce')
-      (argComputerMove == 'papier' && argPlayerMove == 'kamień')
-      (argComputerMove == 'nożyce' && argPlayerMove == 'papier')
-     ){
-      printMessage('Komputer wygrał');
-      computerWin++;
-    }
-    else {
+    if(argComputerMove == 'kamień' && argPlayerMove == 'papier'){
       printMessage('Ty wygrywasz');
-      playerWin++;
+    }else if(argComputerMove == 'kamień' && argPlayerMove == 'kamień'){
+      printMessage('Remis');
+    }else if(argComputerMove == 'kamień' && argPlayerMove == 'nożyce'){
+      printMessage('Komputer wygrał');
+    }else if(argComputerMove == 'papier' && argPlayerMove == 'nożyce'){
+      printMessage('Ty wygrywasz');
+    }else if(argComputerMove == 'papier' && argPlayerMove == 'papier'){
+      printMessage('Remis');
+    }else if(argComputerMove == 'papier' && argPlayerMove == 'kamień'){
+      printMessage('Komputer wygrał');
+    }else if(argComputerMove == 'nożyce' && argPlayerMove == 'kamień'){
+      printMessage('Ty wygrywasz');
+    }else if(argComputerMove == 'nożyce' && argPlayerMove == 'nożyce'){
+      printMessage('Remis');
+    }else if(argComputerMove == 'nożyce' && argPlayerMove == 'papier'){
+      printMessage('Komputer wygrał');
+    }else {
+      printMessage('??');
     }
-    
-    
   }
 
   let randomNumber = Math.floor(Math.random() * 3 + 1);
@@ -53,8 +57,8 @@ function playGame(playerInput){
   let playerMove = getMoveName(playerInput);
 
   printMessage('Twój ruch to: ' + playerMove);
-  document.getElementById(result).textContent = '${playerWin} - ${computerWin}';
-  displayResult(computerMove, playerMove)
+
+  displayResult(computerMove, playerMove);
 }
 
 document.getElementById('kamień').addEventListener('click', function() {
